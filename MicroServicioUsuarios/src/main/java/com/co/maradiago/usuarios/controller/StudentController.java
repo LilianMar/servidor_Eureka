@@ -2,7 +2,7 @@ package com.co.maradiago.usuarios.controller;
 
 import com.co.maradiago.usuarios.entity.Student;
 import com.co.maradiago.usuarios.service.StudentService;
-import lombok.Data;
+import com.maradiago.MicroservicioSpringCommons.controller.CommonController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -14,10 +14,8 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-public class StudentController {
+public class StudentController extends CommonController<Student, StudentService> {
 
-    @Autowired
-    StudentService service;
 
     @Value("${config.balanceador.test}")
     private String balanceadorTest;
@@ -30,25 +28,6 @@ public class StudentController {
         return ResponseEntity.ok().body(response);
     }
 
-    @GetMapping
-    public ResponseEntity<?> listStudents(){
-        return ResponseEntity.ok().body(service.findAll());
-    }
-
-    @GetMapping("/")
-    public ResponseEntity<?> view(@PathVariable Long id){
-        Optional<Student> ob = service.findById(id);
-        if(ob.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok().body(ob.get());
-    }
-
-    @PostMapping
-    public ResponseEntity<?> create(@RequestBody Student student){
-        Student studentDb = service.save(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(studentDb);
-    }
 
     @PostMapping("/{id}")
     public ResponseEntity<?> modify(@RequestBody Student student, @PathVariable Long id){
@@ -63,9 +42,5 @@ public class StudentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(studentBd));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
-        service.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
+
 }
