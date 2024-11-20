@@ -17,6 +17,7 @@ public class StudentServiceImpl implements StudentService {
     public Iterable<Student> findAll() {
         return dao.findAll();
     }
+
     @Override
     @Transactional
     public Optional<Student> findById(Long id) {
