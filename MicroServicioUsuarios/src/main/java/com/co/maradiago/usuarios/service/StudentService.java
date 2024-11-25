@@ -1,7 +1,7 @@
 package com.co.maradiago.usuarios.service;
 
-import com.co.maradiago.usuarios.entity.Student;
 import com.maradiago.MicroservicioSpringCommons.service.CommonService;
+import com.maradiago.common.usuario.models.entity.Student;
 
 
 public interface StudentService extends CommonService<Student> {

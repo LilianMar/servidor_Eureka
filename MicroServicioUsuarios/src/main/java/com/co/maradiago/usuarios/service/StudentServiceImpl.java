@@ -1,7 +1,7 @@
 package com.co.maradiago.usuarios.service;
 
-import com.co.maradiago.usuarios.entity.Student;
 import com.co.maradiago.usuarios.repository.StudentRepository;
+import com.maradiago.common.usuario.models.entity.Student;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -2,9 +2,9 @@ package com.co.maradiago.usuarios.controller;
 
 
 
-import com.co.maradiago.usuarios.entity.Student;
 import com.co.maradiago.usuarios.service.StudentService;
 import com.maradiago.MicroservicioSpringCommons.controller.CommonController;
+import com.maradiago.common.usuario.models.entity.Student;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
