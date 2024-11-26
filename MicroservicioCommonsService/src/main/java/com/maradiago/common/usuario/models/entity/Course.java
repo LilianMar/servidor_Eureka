@@ -19,6 +19,7 @@ public class Course {
     private void prePersist() {
         this.createAt = new Date();
     }
+
     @OneToMany(fetch = FetchType.LAZY)
     private List<Student> listStudents;
 

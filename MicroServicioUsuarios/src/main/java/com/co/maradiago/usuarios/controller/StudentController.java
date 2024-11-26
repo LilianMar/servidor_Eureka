@@ -29,17 +29,6 @@ public class StudentController extends CommonController<Student, StudentService>
      return ResponseEntity.ok().body(response);
      }
 
-/**
-   @GetMapping("/balanceador-test")
-   public ResponseEntity<String> balanceadorTest() {
-       return ResponseEntity.ok("balanceador");
-   }**/
-
-    @GetMapping("/list")
-    public ResponseEntity<?> listStudents(){
-        return ResponseEntity.ok().body(service.findAll());
-    }
-
 
     @PostMapping("/{id}")
     public ResponseEntity<?> modify(@RequestBody Student student, @PathVariable Long id){
